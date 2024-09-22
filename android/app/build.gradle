@@ -1,0 +1,67 @@
+plugins {
+    id 'org.jetbrains.kotlin.android' version '1.7.10'
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader("UTF-8") { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty("flutter.versionCode")
+if (flutterVersionCode == null) {
+    flutterVersionCode = "6"
+}
+
+def flutterVersionName = localProperties.getProperty("flutter.versionName")
+if (flutterVersionName == null) {
+    flutterVersionName = "1.0.1"
+}
+
+android {
+    namespace = "com.example.mobi_tv_entertainment"
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'ekamflix'
+            keyPassword 'ekamflix'
+            storeFile file('ekamflix-keystore.jks')
+            storePassword 'ekamflix'
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.ekom.five"
+        minSdk 21
+        targetSdk 34
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            // Additional release configuration options can be added here
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+
+
+
