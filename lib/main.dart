@@ -1,19 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
-// import 'package:mobi_tv_entertainment/live_sub_screen/all_channel.dart';
-import 'package:mobi_tv_entertainment/live_sub_screen/entertainment_screen.dart';
-// import 'package:mobi_tv_entertainment/live_sub_screen/music_screen.dart';
-import 'package:mobi_tv_entertainment/menu_one_item/home_screen.dart';
-import 'package:mobi_tv_entertainment/menu_one_item/notification_screen.dart';
-import 'package:mobi_tv_entertainment/menu_one_item/search_screen.dart';
-import 'package:mobi_tv_entertainment/menu_one_item/splash_screen.dart';
-import 'package:mobi_tv_entertainment/menu_one_item/vod.dart';
+import 'package:mobi_tv_entertainment/menu_screens/home_screen.dart';
+import 'package:mobi_tv_entertainment/menu_screens/notification_screen.dart';
+import 'package:mobi_tv_entertainment/menu_screens/search_screen.dart';
+import 'package:mobi_tv_entertainment/menu_screens/splash_screen.dart';
+import 'package:mobi_tv_entertainment/menu_screens/vod.dart';
 import 'package:http/http.dart' as https;
 import 'package:flutter/material.dart';
-import 'package:mobi_tv_entertainment/menu_one_item/splash_screen.dart';
 import 'menu/top_navigation_bar.dart';
-import 'menu_one_item/live_screen.dart';
-import 'menu_two_items/music_screen.dart';
+import 'menu_screens/live_screen.dart';
 
 class MyHttpOverrides extends HttpOverrides {
   @override
@@ -129,7 +124,7 @@ class _MyHomeState extends State<MyHome> {
       // Your LiveScreen content pages
       HomeScreen(),
       VOD(),
-      EntertainmentScreen(),
+      VOD(),
       LiveScreen(),
       SearchScreen(),
       NotificationScreen(),

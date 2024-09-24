@@ -219,7 +219,13 @@ class _VideoMovieScreenState extends State<VideoMovieScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(
+      onWillPop: () async {
+        _controller.pause();
+        Navigator.of(context).pop(true);
+        return false;
+      },
+      child: Scaffold(
       backgroundColor: Colors.black,
       body: Focus(
         focusNode: screenFocusNode,
@@ -333,7 +339,7 @@ class _VideoMovieScreenState extends State<VideoMovieScreen>
             ],
           ),
         ),
-      ),
+      ),)
     );
   }
 }

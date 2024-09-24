@@ -12,13 +12,13 @@ class VideoScreen extends StatefulWidget {
   final String videoUrl;
   final String videoTitle;
   final List<dynamic> channelList;
-  final Function(bool) onFabFocusChanged;
+  // final Function(bool) onFabFocusChanged;
 
   VideoScreen({
     required this.videoUrl,
     required this.videoTitle,
     required this.channelList,
-    required this.onFabFocusChanged,
+    // required this.onFabFocusChanged,
     required String genres,
     required List channels,
     required int initialIndex,

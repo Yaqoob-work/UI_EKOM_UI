@@ -1,13 +1,12 @@
 import 'dart:convert';
-
-import 'package:flutter/material.dart';
-import 'package:mobi_tv_entertainment/home_sub_screen/banner_slider_screen.dart';
-import 'package:mobi_tv_entertainment/home_sub_screen/home_category.dart';
-// import 'package:mobi_tv_entertainment/home_sub_screen/live_sub_screen.dart';
-import 'package:mobi_tv_entertainment/home_sub_screen/sub_vod.dart';
 import 'package:mobi_tv_entertainment/main.dart';
+import 'package:mobi_tv_entertainment/menu_two_items/Music_screen.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as https;
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'home_sub_screen/banner_slider_screen.dart';
+import 'home_sub_screen/home_category.dart';
+import 'home_sub_screen/sub_vod.dart';
 
 void main() {
   runApp(HomeScreen());
@@ -45,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
     });
 
     // Simulate network request delay
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
 
     try {
       final response = await https.get(
@@ -62,11 +61,11 @@ class _HomeScreenState extends State<HomeScreen> {
         });
       } else {
         // Handle errors or non-200 responses
-        print('Something Went Wrong');
+        print('Failed to load settings');
       }
     } catch (e) {
       // Handle network errors or JSON parsing errors
-      print('Something Went Wrong');
+      print('Error: $e');
     }
 
     setState(() {
@@ -95,16 +94,24 @@ class _HomeScreenState extends State<HomeScreen> {
             //   child: Text('.'),
             // ),
             // if (_tvenableAll) // Conditionally display SubVod
-              Container(
-                color: cardColor,
-                height: screenhgt * 0.65,
-                child: BannerSlider(),
-              ),
+            Container(
+              color: cardColor,
+              height: screenhgt * 0.8,
+              child: BannerSlider(),
+            ),
             // if (_tvenableAll) // Conditionally display SubVod
+            Container(
+              color: cardColor,
+              child: SizedBox(
+                height: screenhgt * 0.55,
+                child: MusicScreen(),
+              ),
+            ),
+            //             // if (_tvenableAll) // Conditionally display SubVod
               Container(
                 color: cardColor,
                 child: SizedBox(
-                  height: screenhgt * 0.35,
+                  height: screenhgt * 0.5,
                   child: SubVod(),
                 ),
               ),
@@ -138,6 +145,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-
-

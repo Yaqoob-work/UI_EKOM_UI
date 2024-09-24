@@ -317,7 +317,7 @@ class _MusicScreenState extends State<MusicScreen> {
               videoUrl: newsItem.url,
               videoTitle: newsItem.name,
               channelList: _entertainmentList,
-              onFabFocusChanged: (bool) {},
+              // onFabFocusChanged: (bool) {},
               genres: newsItem.genres,
               channels: [],
               initialIndex: 1,
@@ -354,3 +354,5 @@ class _MusicScreenState extends State<MusicScreen> {
     super.dispose();
   }
 }
+
+

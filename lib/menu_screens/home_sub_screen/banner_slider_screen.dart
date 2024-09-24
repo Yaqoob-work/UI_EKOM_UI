@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:http/http.dart' as https;
-import '../main.dart';
-import '../video_widget/video_movie_screen.dart';
+import '../../main.dart';
+import '../../video_widget/video_movie_screen.dart';
 
 class BannerSlider extends StatefulWidget {
   @override

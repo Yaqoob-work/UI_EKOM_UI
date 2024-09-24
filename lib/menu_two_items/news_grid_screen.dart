@@ -334,7 +334,7 @@ class _NewsGridScreenState extends State<NewsGridScreen> {
               videoUrl: newsItem.url,
               videoTitle: newsItem.name,
               channelList: _entertainmentList,
-              onFabFocusChanged: (bool) {},
+              // onFabFocusChanged: (bool) {},
               genres: newsItem.genres,
               channels: [],
               initialIndex: 1,
